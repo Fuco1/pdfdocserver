@@ -1,0 +1,1 @@
+java -cp %AXISCLASSPATH% org.apache.axis.client.AdminClient -lhttp://localhost:8080/DocServer/services/AdminService web/WEB-INF/deploy.wsdd
