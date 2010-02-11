@@ -2,7 +2,7 @@
             xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
 
     <service name="WeatherService" provider="java:RPC">
-        <parameter name="className" value="cz.muni.pa165.docserver.soaptest.WeatherServiceImpl" />
+        <parameter name="className" value="cz.muni.fi.pa165.docserver.soaptest.WeatherServiceImpl" />
         <parameter name="allowedMethods" value="*" />
         <parameter name="wsdlPortType" value="WeatherService" />
         <parameter name="wsdlTargetNamespace" value="urn:kb-ws-SiteWS" />
@@ -10,5 +10,5 @@
 
     <beanMapping xmlns:ns="urn:axis-weather"
      qname="ns:Weather"
-     type="java:cz.muni.pa165.docserver.soaptest.Weather" />
+     type="java:cz.muni.fi.pa165.docserver.soaptest.Weather" />
 </deployment>

@@ -37,7 +37,7 @@
  <service name="WeatherService" provider="java:RPC">
   <parameter name="allowedMethods" value="*"/>
   <parameter name="wsdlPortType" value="WeatherService"/>
-  <parameter name="className" value="cz.muni.pa165.docserver.soaptest.WeatherServiceImpl"/>
+  <parameter name="className" value="cz.muni.fi.pa165.docserver.soaptest.WeatherServiceImpl"/>
   <parameter name="wsdlTargetNamespace" value="urn:kb-ws-SiteWS"/>
  </service>
  <transport name="http">
@@ -57,5 +57,5 @@
    <handler type="LocalResponder"/>
   </responseFlow>
  </transport>
- <beanMapping languageSpecificType="java:cz.muni.pa165.docserver.soaptest.Weather" qname="ns1:Weather" xmlns:ns1="urn:axis-weather"/>
+ <beanMapping languageSpecificType="java:cz.muni.fi.pa165.docserver.soaptest.Weather" qname="ns1:Weather" xmlns:ns1="urn:axis-weather"/>
 </deployment>
