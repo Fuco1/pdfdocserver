@@ -25,7 +25,7 @@
     </appender>
 
     <appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="logs/server.log" />
+        <param name="File" value="${catalina.base}/logs/docserver.log" />
         <param name="DatePattern" value="'.'yyyy-MM-dd" />
         <param name="Append" value="true" />
         <layout class="org.apache.log4j.PatternLayout">
@@ -37,13 +37,21 @@
         </filter>
     </appender>
 
-    <logger name="cz.muni.pa165.docserver">
+    <logger name="cz.muni.fi.pa165.docserver">
         <level value="trace" />
         <appender-ref ref="FILE" />
         <appender-ref ref="STDOUT" />
         <appender-ref ref="STDERR" />
     </logger>
-
+    
+    <category name="org.springframework">
+        <priority value="info"/>
+    </category>
+    
+    <category name="org.apache.axis">
+        <priority value="info"/>
+    </category>
+    
     <root>
         <level value="trace" />
         <appender-ref ref="FILE" />
