@@ -5,28 +5,26 @@
 package cz.muni.fi.pa165.docserver.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
+import javax.persistence.OneToOne;
 
 /**
- * Name is unique for each account
+ *
  * @author Matus
  */
 @Entity
-public class User implements Serializable {
+public class Word implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
-    private String password;
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    private Date regDate;
+    private String word;
+    @OneToOne
+    private DocumentFile documentFile;
 
     public Long getId() {
         return id;
@@ -36,28 +34,20 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getWord() {
+        return word;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setWord(String word) {
+        this.word = word;
     }
 
-    public String getPassword() {
-        return password;
+    public DocumentFile getDocumentFile() {
+        return documentFile;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Date getRegDate() {
-        return regDate;
-    }
-
-    public void setRegDate(Date regDate) {
-        this.regDate = regDate;
+    public void setDocumentFile(DocumentFile documentFile) {
+        this.documentFile = documentFile;
     }
 
     @Override
@@ -70,10 +60,10 @@ public class User implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof User)) {
+        if (!(object instanceof Word)) {
             return false;
         }
-        User other = (User) object;
+        Word other = (Word) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -82,6 +72,6 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "cz.muni.fi.pa165.docserver.entities.User[id=" + id + "]";
+        return "cz.muni.fi.pa165.docserver.entities.Wordlist[id=" + id + "]";
     }
 }

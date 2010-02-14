@@ -10,7 +10,7 @@ package cz.muni.fi.pa165.docserver.exceptions;
  */
 public class DocServerException extends Exception {
 
-    static final long serialVersionUID = -3387516993124229948L + 1;
+    private static final long serialVersionUID = -3387516993124229948L + 1;
 
     public DocServerException() {
         super();

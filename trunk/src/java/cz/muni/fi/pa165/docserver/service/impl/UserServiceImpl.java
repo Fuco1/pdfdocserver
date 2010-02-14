@@ -6,6 +6,7 @@ package cz.muni.fi.pa165.docserver.service.impl;
 
 import cz.muni.fi.pa165.docserver.dao.UserDao;
 import cz.muni.fi.pa165.docserver.entities.User;
+import cz.muni.fi.pa165.docserver.exceptions.UserCannotBeCreatedException;
 import cz.muni.fi.pa165.docserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,21 @@ public class UserServiceImpl implements UserService {
 
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
+    }
+
+    public User getUserById(long id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public User getUserByName(String name) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public User addUser(String name, String password) throws UserCannotBeCreatedException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public boolean changePassword(long id, String oldPassword, String newPassword) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
