@@ -5,7 +5,6 @@
 package cz.muni.fi.pa165.docserver.service;
 
 import cz.muni.fi.pa165.docserver.entities.User;
-import cz.muni.fi.pa165.docserver.exceptions.UserCannotBeCreatedException;
 
 /**
  *
