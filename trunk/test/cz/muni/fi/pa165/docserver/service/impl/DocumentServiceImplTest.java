@@ -48,44 +48,6 @@ public class DocumentServiceImplTest {
     }
 
     /**
-     * Test of persist method, of class DocumentServiceImpl.
-     */
-    @Test
-    public void testPersist() {
-        System.out.println("persist");
-        Document entity = null;
-        instance.persist(entity);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of merge method, of class DocumentServiceImpl.
-     */
-    @Test
-    public void testMerge() {
-        System.out.println("merge");
-        Document entity = null;
-        Document expResult = null;
-        Document result = instance.merge(entity);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of remove method, of class DocumentServiceImpl.
-     */
-    @Test
-    public void testRemove() {
-        System.out.println("remove");
-        Document entity = null;
-        instance.remove(entity);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of setDocDao method, of class DocumentServiceImpl.
      */
     @Test
