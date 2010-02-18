@@ -6,6 +6,7 @@ package cz.muni.fi.pa165.docserver.service.impl;
 
 import cz.muni.fi.pa165.docserver.dao.UserDao;
 import cz.muni.fi.pa165.docserver.entities.User;
+import cz.muni.fi.pa165.docserver.exceptions.UserCannotBeCreatedException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -126,7 +127,7 @@ public class UserServiceImplTest {
      * Test of addUser method, of class UserServiceImpl.
      */
     @Test
-    public void testAddUser() {
+    public void testAddUser() throws UserCannotBeCreatedException {
         System.out.println("addUser");
         String name = "";
         String password = "";

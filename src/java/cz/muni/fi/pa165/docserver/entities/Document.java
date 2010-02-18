@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -21,6 +23,9 @@ import javax.persistence.Temporal;
  * @author Matus
  */
 @Entity
+@NamedQueries({@NamedQuery(name = "getDocumentsByUserId",
+                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 ORDER BY d.title ASC"),
+                @NamedQuery()})
 public class Document implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getUserById(long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return userDao.find(id);
     }
 
     public User getUserByName(String name) {
@@ -46,10 +46,23 @@ public class UserServiceImpl implements UserService {
     }
 
     public User addUser(String name, String password) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        User user = new User();
+        user.setName(name);
+        user.setPassword(password);
+        userDao.persist(user);
+        return user;
     }
 
     public boolean changePassword(long id, String oldPassword, String newPassword) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        User user = userDao.find(id);
+        if (user == null) return false;
+        if (user.getPassword().equals(oldPassword)) {
+            user.setPassword(newPassword);
+            userDao.persist(user);
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }

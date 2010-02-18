@@ -127,17 +127,4 @@ public interface DocumentService extends GenericEntityService<Document> {
      */
     boolean changeMetaData(long id, String title, Tag[] tags, String description, boolean isPublic);
 
-    /**
-     * Transforms document to DTO for SOAP transfer
-     * @param doc Document to be transformed
-     * @return Transformed document as DTO
-     */
-    DocumentDto documentToDto(Document doc);
-
-    /**
-     * Transforms DTO to Document entity for persistence
-     * @param doc Document to be transformed
-     * @return Transformed DTO as document
-     */
-    Document DtoToDocument(DocumentDto doc);
 }
