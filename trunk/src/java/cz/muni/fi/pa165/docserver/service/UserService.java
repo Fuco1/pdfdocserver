@@ -36,11 +36,8 @@ public interface UserService extends GenericEntityService<User> {
      * @param name Name of new user
      * @param password Password of new user
      * @return Instance of the user just created
-     * @throws UserCannotBeCreatedException
-     *         If user with {@code name} already exists or if there was an error
-     *         during persisting the instance.
      */
-    User addUser(String name, String password) throws UserCannotBeCreatedException;
+    User addUser(String name, String password);
 
     /**
      * Change password of the user.
