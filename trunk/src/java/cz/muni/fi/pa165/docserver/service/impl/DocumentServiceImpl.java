@@ -10,6 +10,9 @@ import cz.muni.fi.pa165.docserver.entities.Document;
 import cz.muni.fi.pa165.docserver.entities.DocumentFile;
 import cz.muni.fi.pa165.docserver.entities.Tag;
 import cz.muni.fi.pa165.docserver.service.DocumentService;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,7 +51,14 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public DocumentDto[] getDocumentsByUserId(long id, int from, int num) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Object[] args = new Object[1];
+        args[0] = id;
+        List<Document> docs =  docDao.executeNamedQuery("getDocumentsByUserId", from, num, args);
+        DocumentDto[] ret = new DocumentDto[docs.size()];
+        for(int i=0;i<docs.size();i++) {
+            ret[i] = documentToDto(docs.get(i));
+        }
+        return ret;
     }
 
     public DocumentDto[] getDocumentsByTags(String[] tags, int from, int num) {
@@ -60,7 +70,9 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public int getDocumentCountByUserId(long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Object[] args = new Object[1];
+        args[0] = id;
+        return docDao.executeNamedQuery(Document.class, "getDocumentsByUserId", args).size();
     }
 
     public int getDocumentCountByTags(String[] tags) {
@@ -72,11 +84,14 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public DocumentDto getDocumentById(long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return documentToDto(docDao.find(id));
     }
 
     public boolean removeDocument(long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Document doc = docDao.find(id);
+        if (doc==null) return false;
+        remove(docDao.find(id));
+        return true;
     }
 
     public boolean removeDocumentRevision(long docId, long revisionId) {
@@ -84,14 +99,39 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public boolean changeMetaData(long id, String title, Tag[] tags, String description, boolean isPublic) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Document doc = docDao.find(id);
+        if (doc==null) return false;
+        doc.setTags(Arrays.asList(tags));
+        doc.setDescription(description);
+        doc.setIsPublic(isPublic);
+        docDao.persist(doc);
+        return true;
     }
 
-    public DocumentDto documentToDto(Document doc) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    private DocumentDto documentToDto(Document doc) {
+        Tag[] tags = new Tag[doc.getTags().size()];
+        DocumentFile[] docs = new DocumentFile[doc.getFiles().size()];
+        return new DocumentDto(doc.getId(), doc.getTitle(), doc.getAuthor(), doc.getCreationDate(), doc.getFiles().toArray(tags), doc.getDescription(), doc.getFiles().toArray(docs), doc.isIsPublic());
     }
 
-    public Document DtoToDocument(DocumentDto doc) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    private Document DtoToDocument(DocumentDto doc) {
+        Document d = new Document();
+        d.setId(doc.getId());
+        d.setAuthor(doc.getAuthor());
+        d.setIsPublic(doc.isIsPublic());
+        d.setDescription(doc.getDescription());
+        d.setCreationDate(doc.getCreationDate());
+        List<Tag> tags = new ArrayList<Tag>();
+        for(int i = 0;i<doc.getTags().length;i++){
+            tags.add(doc.getTags()[i]);
+        }
+        d.setTags(tags);
+        List<DocumentFile> files = new ArrayList<DocumentFile>();
+        for(int i = 0;i<doc.getFiles().length;i++){
+            files.add(doc.getFiles()[i]);
+        }
+        d.setFiles(files);
+        d.setTitle(doc.getTitle());
+        return d;
     }
 }

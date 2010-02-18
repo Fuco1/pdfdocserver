@@ -9,6 +9,7 @@ import cz.muni.fi.pa165.docserver.entities.Tag;
 import cz.muni.fi.pa165.docserver.entities.User;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -38,6 +39,10 @@ public class DocumentDto implements Serializable {
         this.description = description;
         this.files = files;
         this.isPublic = isPublic;
+    }
+
+    public DocumentDto(Long id, String title, User author, Date creationDate, Tag[] tags, String description, List<DocumentFile> files, boolean aPublic) {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
     public User getAuthor() {
