@@ -6,8 +6,8 @@ package cz.muni.fi.pa165.docserver.service.impl;
 
 import cz.muni.fi.pa165.docserver.dao.UserDao;
 import cz.muni.fi.pa165.docserver.entities.User;
-import cz.muni.fi.pa165.docserver.exceptions.UserCannotBeCreatedException;
 import cz.muni.fi.pa165.docserver.service.UserService;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,18 +49,22 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setName(name);
         user.setPassword(password);
+        user.setRegDate(new Date());
         userDao.persist(user);
         return user;
     }
 
     public boolean changePassword(long id, String oldPassword, String newPassword) {
         User user = userDao.find(id);
-        if (user == null) return false;
+        if (user == null) {
+            return false;
+        }
         if (user.getPassword().equals(oldPassword)) {
             user.setPassword(newPassword);
             userDao.persist(user);
             return true;
-        } else {
+        }
+        else {
             return false;
         }
 

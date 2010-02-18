@@ -46,56 +46,6 @@ public class UserServiceImplTest {
     }
 
     /**
-     * Test of persist method, of class UserServiceImpl.
-     */
-    @Test
-    public void testPersist() {
-        System.out.println("persist");
-        User entity = null;
-        instance.persist(entity);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of merge method, of class UserServiceImpl.
-     */
-    @Test
-    public void testMerge() {
-        System.out.println("merge");
-        User entity = null;
-        User expResult = null;
-        User result = instance.merge(entity);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of remove method, of class UserServiceImpl.
-     */
-    @Test
-    public void testRemove() {
-        System.out.println("remove");
-        User entity = null;
-        instance.remove(entity);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setUserDao method, of class UserServiceImpl.
-     */
-    @Test
-    public void testSetUserDao() {
-        System.out.println("setUserDao");
-        UserDao userDao = null;
-        instance.setUserDao(userDao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getUserById method, of class UserServiceImpl.
      */
     @Test
