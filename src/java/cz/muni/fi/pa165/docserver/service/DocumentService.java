@@ -6,6 +6,7 @@ package cz.muni.fi.pa165.docserver.service;
 
 import cz.muni.fi.pa165.docserver.dto.DocumentDto;
 import cz.muni.fi.pa165.docserver.entities.Document;
+import cz.muni.fi.pa165.docserver.entities.DocumentFile;
 import cz.muni.fi.pa165.docserver.entities.Tag;
 
 /**
@@ -14,17 +15,26 @@ import cz.muni.fi.pa165.docserver.entities.Tag;
  */
 public interface DocumentService extends GenericEntityService<Document> {
 
-    //TODO: addDoc sturcture unknown (how are binaries distributed? (bas64?)
+    /**
+     * 
+     * @param document Information about document, including the base DocumentFile
+     * data about revision 1
+     * @param binaryData Base64 encoded binary data of the document
+     * @return true if document was added or false otherwise
+     */
+    boolean addDocument(DocumentDto document, String binaryData);
 
-//    /**
-//     *
-//     * @param id Id of the document to which we're adding the revision
-//     * @param docFile Revision data
-//     * @return
-//     */
-//    boolean addDocumentRevision(long id, DocumentFile docFile); // missing the binary data
+    /**
+     * Add new revision to the document. Revisions are simply indetified by date
+     * of submission.
+     *
+     * @param id Id of the document to which we're adding the revision
+     * @param docFile Revision data
+     * @param binaryData Base64 encoded binary data of the document
+     * @return true if document was added or false otherwise
+     */
+    boolean addDocumentRevision(long id, DocumentFile docFile, String binaryData); // missing the binary data
 
-    
     /**
      * Return all public documents of given user.
      *
@@ -95,6 +105,15 @@ public interface DocumentService extends GenericEntityService<Document> {
     boolean removeDocument(long id);
 
     /**
+     * Remove specific revision from document
+     *
+     * @param docId Id of the document
+     * @param revisionId Id of the revision
+     * @return true if removed, false otherwise
+     */
+    boolean removeDocumentRevision(long docId, long revisionId);
+
+    /**
      * Changes meta-data about the document. <b>All</b> parameters are reflected to
      * data storage media. If you want to change only some of them, you have to
      * set the rest to the original ("old") value.
@@ -107,4 +126,18 @@ public interface DocumentService extends GenericEntityService<Document> {
      * @return True if all changes are succesfuly reflected, or false otherwise
      */
     boolean changeMetaData(long id, String title, Tag[] tags, String description, boolean isPublic);
+
+    /**
+     * Transforms document to DTO for SOAP transfer
+     * @param doc Document to be transformed
+     * @return Transformed document as DTO
+     */
+    DocumentDto documentToDto(Document doc);
+
+    /**
+     * Transforms DTO to Document entity for persistence
+     * @param doc Document to be transformed
+     * @return Transformed DTO as document
+     */
+    Document DtoToDocument(DocumentDto doc);
 }

@@ -5,11 +5,12 @@
 package cz.muni.fi.pa165.docserver.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -23,8 +24,8 @@ public class Word implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String word;
-    @OneToOne
-    private DocumentFile documentFile;
+    @OneToMany()
+    private List<DocumentFile> documentFile;
 
     public Long getId() {
         return id;
@@ -42,11 +43,11 @@ public class Word implements Serializable {
         this.word = word;
     }
 
-    public DocumentFile getDocumentFile() {
+    public List<DocumentFile> getDocumentFile() {
         return documentFile;
     }
 
-    public void setDocumentFile(DocumentFile documentFile) {
+    public void setDocumentFile(List<DocumentFile> documentFile) {
         this.documentFile = documentFile;
     }
 

@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public User addUser(String name, String password) throws UserCannotBeCreatedException {
+    public User addUser(String name, String password) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 

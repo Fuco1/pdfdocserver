@@ -5,6 +5,7 @@
 package cz.muni.fi.pa165.docserver.dao;
 
 import cz.muni.fi.pa165.docserver.entities.Document;
+import java.util.LinkedList;
 
 /**
  * Handles data access for <code>Document</code>, <code>DocumentFile</code> and

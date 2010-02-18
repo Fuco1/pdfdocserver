@@ -7,6 +7,7 @@ package cz.muni.fi.pa165.docserver.service.impl;
 import cz.muni.fi.pa165.docserver.dao.DocumentDao;
 import cz.muni.fi.pa165.docserver.dto.DocumentDto;
 import cz.muni.fi.pa165.docserver.entities.Document;
+import cz.muni.fi.pa165.docserver.entities.DocumentFile;
 import cz.muni.fi.pa165.docserver.entities.Tag;
 import cz.muni.fi.pa165.docserver.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,14 @@ public class DocumentServiceImpl implements DocumentService {
 
     public void setDocDao(DocumentDao docDao) {
         this.docDao = docDao;
+    }
+
+    public boolean addDocument(DocumentDto document, String binaryData) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public boolean addDocumentRevision(long id, DocumentFile docFile, String binaryData) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     public DocumentDto[] getDocumentsByUserId(long id, int from, int num) {
@@ -70,7 +79,19 @@ public class DocumentServiceImpl implements DocumentService {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    public boolean removeDocumentRevision(long docId, long revisionId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     public boolean changeMetaData(long id, String title, Tag[] tags, String description, boolean isPublic) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public DocumentDto documentToDto(Document doc) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public Document DtoToDocument(DocumentDto doc) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

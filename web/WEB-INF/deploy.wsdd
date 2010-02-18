@@ -11,4 +11,34 @@
     <beanMapping xmlns:ns="urn:axis-weather"
      qname="ns:Weather"
      type="java:cz.muni.fi.pa165.docserver.soaptest.Weather" />
+
+    <service name="UserService" provider="java:RPC">
+        <parameter name="className" value="cz.muni.fi.pa165.docserver.service.impl.UserServiceImpl" />
+        <parameter name="allowedMethods" value="*" />
+        <parameter name="wsdlPortType" value="UserService" />
+        <parameter name="wsdlTargetNamespace" value="urn:kb-ws-SiteUS" />
+    </service>
+
+    <service name="DocumentService" provider="java:RPC">
+        <parameter name="className" value="cz.muni.fi.pa165.docserver.service.impl.DocumentServiceImpl" />
+        <parameter name="allowedMethods" value="*" />
+        <parameter name="wsdlPortType" value="DocumentService" />
+        <parameter name="wsdlTargetNamespace" value="urn:kb-ws-SiteDS" />
+    </service>
+
+    <beanMapping xmlns:ns="urn:axis-documentdto"
+     qname="ns:DocumentDto"
+     type="java:cz.muni.fi.pa165.docserver.dto.DocumentDto" />
+
+    <beanMapping xmlns:ns="urn:axis-documentfile"
+     qname="ns:DocumentFile"
+     type="java:cz.muni.fi.pa165.docserver.entities.DocumentFile" />
+
+    <beanMapping xmlns:ns="urn:axis-tag"
+     qname="ns:Tag"
+     type="java:cz.muni.fi.pa165.docserver.entities.Tag" />
+
+    <beanMapping xmlns:ns="urn:axis-user"
+     qname="ns:User"
+     type="java:cz.muni.fi.pa165.docserver.entities.User" />
 </deployment>
