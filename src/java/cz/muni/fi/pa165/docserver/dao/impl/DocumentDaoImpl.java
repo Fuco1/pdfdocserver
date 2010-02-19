@@ -7,6 +7,7 @@ package cz.muni.fi.pa165.docserver.dao.impl;
 import cz.muni.fi.pa165.docserver.dao.DocumentDao;
 import cz.muni.fi.pa165.docserver.entities.Document;
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import org.springframework.stereotype.Repository;

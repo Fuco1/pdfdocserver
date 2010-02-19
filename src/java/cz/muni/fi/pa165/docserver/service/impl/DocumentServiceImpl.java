@@ -88,9 +88,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public DocumentDto[] getDocumentsByUserId(long id, int from, int num) {
-        Object[] args = new Object[1];
-        args[0] = id;
-        List<Document> docs = docDao.executeNamedQuery("getDocumentsByUserId", from, num, args);
+        List<Document> docs = docDao.executeNamedQuery("getDocumentsByUserId", from, num, id);
         DocumentDto[] ret = new DocumentDto[docs.size()];
         for (int i = 0; i < docs.size(); i++) {
             ret[i] = documentToDto(docs.get(i));
@@ -112,9 +110,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public int getDocumentCountByUserId(long id) {
-        Object[] args = new Object[1];
-        args[0] = id;
-        return docDao.executeNamedQuery(Document.class, "getDocumentsByUserId", args).size();
+        return docDao.findByNamedQuery(Integer.class, "getDocumentCountByUserId", id);
     }
 
     public int getDocumentCountByTags(String[] tags) {
@@ -134,7 +130,7 @@ public class DocumentServiceImpl implements DocumentService {
         if (doc == null) {
             return false;
         }
-        remove(docDao.find(id));
+        remove(doc);
         return true;
     }
 
