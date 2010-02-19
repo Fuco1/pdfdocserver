@@ -156,10 +156,6 @@ public class DocumentServiceImpl implements DocumentService {
 
     private DocumentDto documentToDto(Document doc) {
         Tag[] tags = new Tag[doc.getTags().size()];
-        DocumentFile[] docs = new DocumentFile[doc.getFiles().size()];
-        for (int i = 0; i < docs.length; i++) {
-            docs[i] = doc.getFiles().get(i);
-        }
         return new DocumentDto(doc.getId(), doc.getTitle(), doc.getAuthor(), doc.getCreationDate(), doc.getTags().toArray(tags), doc.getDescription(), doc.getFiles().toArray(new DocumentFile[0]), doc.isIsPublic());
     }
 
