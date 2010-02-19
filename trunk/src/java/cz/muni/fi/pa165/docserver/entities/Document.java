@@ -24,8 +24,7 @@ import javax.persistence.Temporal;
  */
 @Entity
 @NamedQueries({@NamedQuery(name = "getDocumentsByUserId",
-                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 ORDER BY d.title ASC"),
-                @NamedQuery()})
+                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 ORDER BY d.title ASC")})
 public class Document implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,10 +36,10 @@ public class Document implements Serializable {
     private User author;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date creationDate;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Tag> tags;
     private String description;
-    @OneToMany(cascade=CascadeType.REMOVE)
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<DocumentFile> files;
     private boolean isPublic;
 

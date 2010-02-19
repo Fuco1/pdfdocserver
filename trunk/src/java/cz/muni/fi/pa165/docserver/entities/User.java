@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 
 /**
@@ -17,6 +19,8 @@ import javax.persistence.Temporal;
  * @author Matus
  */
 @Entity
+@NamedQueries({@NamedQuery(name = "getUsersByName",
+                           query = "SELECT u FROM User u WHERE u.name = ?1 ORDER BY u.name ASC")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -25,7 +25,7 @@
     </appender>
 
     <appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="${catalina.base}/logs/docserver.log" />
+        <param name="File" value="c:\\logs\\docserver2.log" />
         <param name="DatePattern" value="'.'yyyy-MM-dd" />
         <param name="Append" value="true" />
         <layout class="org.apache.log4j.PatternLayout">

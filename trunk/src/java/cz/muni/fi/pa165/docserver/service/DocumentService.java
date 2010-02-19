@@ -33,7 +33,7 @@ public interface DocumentService extends GenericEntityService<Document> {
      * @param binaryData Base64 encoded binary data of the document
      * @return true if document was added or false otherwise
      */
-    boolean addDocumentRevision(long id, DocumentFile docFile, String binaryData); // missing the binary data
+    boolean addDocumentRevision(long id, String fileName, String binaryData); // missing the binary data
 
     /**
      * Return all public documents of given user.
