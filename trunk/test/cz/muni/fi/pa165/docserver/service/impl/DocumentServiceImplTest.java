@@ -59,18 +59,6 @@ public class DocumentServiceImplTest {
     }
 
     /**
-     * Test of setDocDao method, of class DocumentServiceImpl.
-     */
-    @Test
-    public void testSetDocDao() {
-        System.out.println("setDocDao");
-        DocumentDao docDao = null;
-        instance.setDocDao(docDao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of addDocument method, of class DocumentServiceImpl.
      */
     //@Test

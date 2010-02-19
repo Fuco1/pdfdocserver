@@ -12,15 +12,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.UniqueConstraint;
 
 /**
  * Name is unique for each account
  * @author Matus
  */
 @Entity
-@NamedQueries({@NamedQuery(name = "getUsersByName",
-                           query = "SELECT u FROM User u WHERE u.name = ?1 ORDER BY u.name ASC")})
+@NamedQueries({@NamedQuery(name = "getUserByName",
+                           query = "SELECT u FROM User u WHERE u.name = ?1")})
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

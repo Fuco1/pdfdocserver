@@ -42,10 +42,13 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getUserByName(String name) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return userDao.findByNamedQuery(User.class, "getUserByName", name);
     }
 
     public User addUser(String name, String password) {
+        if (getUserByName(name) != null) {
+            return null;
+        }
         User user = new User();
         user.setName(name);
         user.setPassword(password);

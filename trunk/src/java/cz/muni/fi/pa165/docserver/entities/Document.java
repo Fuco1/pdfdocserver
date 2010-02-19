@@ -24,7 +24,10 @@ import javax.persistence.Temporal;
  */
 @Entity
 @NamedQueries({@NamedQuery(name = "getDocumentsByUserId",
-                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 ORDER BY d.title ASC")})
+                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 ORDER BY d.title ASC"),
+               @NamedQuery(name = "getDocumentCountByUserId",
+                           query = "SELECT count(d) FROM Document d WHERE d.author.id = ?1")
+})
 public class Document implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -36,10 +39,10 @@ public class Document implements Serializable {
     private User author;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date creationDate;
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Tag> tags;
     private String description;
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<DocumentFile> files;
     private boolean isPublic;
 
