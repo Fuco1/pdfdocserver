@@ -5,7 +5,7 @@
 package cz.muni.fi.pa165.docserver.dao;
 
 import cz.muni.fi.pa165.docserver.entities.Document;
-import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Handles data access for <code>Document</code>, <code>DocumentFile</code> and
@@ -13,4 +13,5 @@ import java.util.LinkedList;
  * @author Matus
  */
 public interface DocumentDao extends GenericDao<Document> {
+     public List<Document> findByTags(String[] tags);
 }
