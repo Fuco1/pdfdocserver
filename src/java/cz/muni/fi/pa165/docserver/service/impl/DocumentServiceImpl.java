@@ -10,9 +10,16 @@ import cz.muni.fi.pa165.docserver.entities.Document;
 import cz.muni.fi.pa165.docserver.entities.DocumentFile;
 import cz.muni.fi.pa165.docserver.entities.Tag;
 import cz.muni.fi.pa165.docserver.service.DocumentService;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,26 +50,61 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public boolean addDocument(DocumentDto document, String binaryData) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        File doc = new File(document.getTitle() + "_" + document.getAuthor().getName() + "_" + new Date().getTime() + ".pdf");
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(doc);
+            fos.write(binaryData.getBytes());
+            fos.close();
+        } catch (IOException ex) {
+            Logger.getLogger(DocumentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        DocumentFile df = new DocumentFile();
+        df.setFilename(doc.getName());
+        df.setCreationDate(new Date());
+        DocumentFile[] files = {(df)};
+        document.setFiles(files);
+        docDao.persist(DtoToDocument(document));
+        return true;
     }
 
-    public boolean addDocumentRevision(long id, DocumentFile docFile, String binaryData) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public boolean addDocumentRevision(long id, String fileName, String binaryData) {
+        Document document = docDao.find(id);
+        File doc = new File(document.getTitle() + "_" + document.getAuthor().getName() + "_" + new Date().getTime() + ".pdf");
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(doc);
+            fos.write(binaryData.getBytes());
+            fos.close();
+        } catch (IOException ex) {
+            Logger.getLogger(DocumentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        DocumentFile df = new DocumentFile();
+        df.setFilename(fileName);
+        df.setCreationDate(new Date());
+        document.getFiles().add(df);
+        docDao.merge(document);
+        return true;
     }
 
     public DocumentDto[] getDocumentsByUserId(long id, int from, int num) {
         Object[] args = new Object[1];
         args[0] = id;
-        List<Document> docs =  docDao.executeNamedQuery("getDocumentsByUserId", from, num, args);
+        List<Document> docs = docDao.executeNamedQuery("getDocumentsByUserId", from, num, args);
         DocumentDto[] ret = new DocumentDto[docs.size()];
-        for(int i=0;i<docs.size();i++) {
+        for (int i = 0; i < docs.size(); i++) {
             ret[i] = documentToDto(docs.get(i));
         }
         return ret;
     }
 
     public DocumentDto[] getDocumentsByTags(String[] tags, int from, int num) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<Document> docs = docDao.executeNamedQuery(null, tags);
+        DocumentDto[] ret = new DocumentDto[docs.size()];
+        for (int i = 0; i < docs.size(); i++) {
+            ret[i] = documentToDto(docs.get(i));
+        }
+        return ret;
     }
 
     public DocumentDto[] getDocumentsByFulltext(String[] query, int from, int num) {
@@ -89,7 +131,9 @@ public class DocumentServiceImpl implements DocumentService {
 
     public boolean removeDocument(long id) {
         Document doc = docDao.find(id);
-        if (doc==null) return false;
+        if (doc == null) {
+            return false;
+        }
         remove(docDao.find(id));
         return true;
     }
@@ -100,18 +144,23 @@ public class DocumentServiceImpl implements DocumentService {
 
     public boolean changeMetaData(long id, String title, Tag[] tags, String description, boolean isPublic) {
         Document doc = docDao.find(id);
-        if (doc==null) return false;
+        if (doc == null) {
+            return false;
+        }
         doc.setTags(Arrays.asList(tags));
         doc.setDescription(description);
         doc.setIsPublic(isPublic);
-        docDao.persist(doc);
+        docDao.merge(doc);
         return true;
     }
 
     private DocumentDto documentToDto(Document doc) {
         Tag[] tags = new Tag[doc.getTags().size()];
         DocumentFile[] docs = new DocumentFile[doc.getFiles().size()];
-        return new DocumentDto(doc.getId(), doc.getTitle(), doc.getAuthor(), doc.getCreationDate(), doc.getFiles().toArray(tags), doc.getDescription(), doc.getFiles().toArray(docs), doc.isIsPublic());
+        for (int i = 0; i < docs.length; i++) {
+            docs[i] = doc.getFiles().get(i);
+        }
+        return new DocumentDto(doc.getId(), doc.getTitle(), doc.getAuthor(), doc.getCreationDate(), doc.getTags().toArray(tags), doc.getDescription(), doc.getFiles().toArray(new DocumentFile[0]), doc.isIsPublic());
     }
 
     private Document DtoToDocument(DocumentDto doc) {
@@ -122,12 +171,12 @@ public class DocumentServiceImpl implements DocumentService {
         d.setDescription(doc.getDescription());
         d.setCreationDate(doc.getCreationDate());
         List<Tag> tags = new ArrayList<Tag>();
-        for(int i = 0;i<doc.getTags().length;i++){
+        for (int i = 0; i < doc.getTags().length; i++) {
             tags.add(doc.getTags()[i]);
         }
         d.setTags(tags);
         List<DocumentFile> files = new ArrayList<DocumentFile>();
-        for(int i = 0;i<doc.getFiles().length;i++){
+        for (int i = 0; i < doc.getFiles().length; i++) {
             files.add(doc.getFiles()[i]);
         }
         d.setFiles(files);
