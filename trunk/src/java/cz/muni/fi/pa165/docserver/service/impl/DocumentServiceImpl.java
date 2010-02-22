@@ -87,7 +87,7 @@ public class DocumentServiceImpl implements DocumentService {
         return true;
     }
 
-    public DocumentDto[] getDocumentsByUserId(long id, int from, int num) {
+    public DocumentDto[] getDocumentsByUserId(long id, int from, int num, String orderBy) {
         List<Document> docs = docDao.executeNamedQuery("getDocumentsByUserId", from, num, id);
         DocumentDto[] ret = new DocumentDto[docs.size()];
         for (int i = 0; i < docs.size(); i++) {
@@ -96,7 +96,7 @@ public class DocumentServiceImpl implements DocumentService {
         return ret;
     }
 
-    public DocumentDto[] getDocumentsByTags(String[] tags, int from, int num) {
+    public DocumentDto[] getDocumentsByTags(String[] tags, int from, int num, String orderBy) {
         List<Document> docs = docDao.executeNamedQuery(null, tags);
         DocumentDto[] ret = new DocumentDto[docs.size()];
         for (int i = 0; i < docs.size(); i++) {
@@ -105,7 +105,11 @@ public class DocumentServiceImpl implements DocumentService {
         return ret;
     }
 
-    public DocumentDto[] getDocumentsByFulltext(String[] query, int from, int num) {
+    public DocumentDto[] getDocumentsByFulltext(String[] query, int from, int num, String orderBy) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public DocumentDto[] getDocuments(int id, int from, int num, String orderBy) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
