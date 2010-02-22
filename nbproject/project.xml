@@ -55,6 +55,10 @@
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library>
+                    <file>${file.reference.spring-agent.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
+                <library>
                     <file>${file.reference.wsdl4j-1.5.1.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>

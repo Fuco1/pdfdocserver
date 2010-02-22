@@ -33,7 +33,7 @@ public interface DocumentService extends GenericEntityService<Document> {
      * @param binaryData Base64 encoded binary data of the document
      * @return true if document was added or false otherwise
      */
-    boolean addDocumentRevision(long id, String fileName, String binaryData); // missing the binary data
+    boolean addDocumentRevision(long id, String fileName, String binaryData);
 
     /**
      * Return all public documents of given user.
@@ -41,29 +41,49 @@ public interface DocumentService extends GenericEntityService<Document> {
      * @param id Id of user whom documents we want to view
      * @param from Offset of the resultset
      * @param num Number of documents returned
+     * @param orderBy String representing ordering of returned data. Valid values are
+     * "byAuthor" and "byDate"
      * @return Serializable representation of {@code Document[]}
      */
-    DocumentDto[] getDocumentsByUserId(long id, int from, int num);
+    DocumentDto[] getDocumentsByUserId(long id, int from, int num, String orderBy);
 
     /**
-     * Return all public documents of given user.
+     * Return all public documents with given tags, sorted by number of tag matches
      *
      * @param tags Tags by which we look for documents
      * @param from Offset of the resultset
      * @param num Number of documents returned
+     * @param orderBy String representing ordering of returned data. Valid values are
+     * "byAuthor" and "byDate"
      * @return Serializable representation of {@code Document[]}
      */
-    DocumentDto[] getDocumentsByTags(String[] tags, int from, int num);
+    DocumentDto[] getDocumentsByTags(String[] tags, int from, int num, String orderBy);
 
     /**
-     * Return all public documents of given user.
+     * Return all public documents in which the query words occure, sorted by number
+     * of matches.
      *
      * @param query Fulltext query by which we look for documents
      * @param from Offset of the resultset
      * @param num Number of documents returned
+     * @param orderBy String representing ordering of returned data. Valid values are
+     * "byAuthor" and "byDate"
      * @return Serializable representation of {@code Document[]}
      */
-    DocumentDto[] getDocumentsByFulltext(String[] query, int from, int num);
+    DocumentDto[] getDocumentsByFulltext(String[] query, int from, int num, String orderBy);
+
+    /**
+     * Return all visible documents, that is all public docs from all users
+     * and private docs from caller.
+     *
+     * @param id Id of user requesting documents/caller (to show private documents)
+     * @param from Offset of the resultset
+     * @param num Number of documents returned
+     * @param orderBy String representing ordering of returned data. Valid values are
+     * "byAuthor" and "byDate"
+     * @return Serializable representation of {@code Document[]}
+     */
+    DocumentDto[] getDocuments(int id, int from, int num, String orderBy);
 
     /**
      * Utility method used to calculate pagination. PageCount = TotalCount/PerPage
@@ -126,5 +146,4 @@ public interface DocumentService extends GenericEntityService<Document> {
      * @return True if all changes are succesfuly reflected, or false otherwise
      */
     boolean changeMetaData(long id, String title, Tag[] tags, String description, boolean isPublic);
-
 }
