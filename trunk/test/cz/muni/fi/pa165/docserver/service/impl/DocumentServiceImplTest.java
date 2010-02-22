@@ -120,7 +120,7 @@ public class DocumentServiceImplTest {
         int from = 0;
         int num = 2;
         DocumentDto[] expResult = null;
-        DocumentDto[] result = instance.getDocumentsByUserId(id, from, num);
+        DocumentDto[] result = instance.getDocumentsByUserId(id, from, num, "");
         System.out.println(result[1].getFiles().length + " " + result[1].getTitle());
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -137,7 +137,7 @@ public class DocumentServiceImplTest {
         int from = 0;
         int num = 1;
         DocumentDto[] expResult = null;
-        DocumentDto[] result = instance.getDocumentsByTags(tags, from, num);
+        DocumentDto[] result = instance.getDocumentsByTags(tags, from, num, "");
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
