@@ -90,6 +90,6 @@ public class DocumentWebService extends ServletEndpointSupport implements Docume
     }
 
     public String getDocumentFile(long revisionId, long documentId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return logic.getDocumentFile(revisionId, documentId);
     }
 }

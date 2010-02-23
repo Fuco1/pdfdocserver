@@ -56,6 +56,7 @@ public class DocumentServiceImpl implements DocumentService {
     public boolean addDocument(DocumentDto document, String binaryData) {
         File doc = new File(document.getTitle() + "_" + document.getAuthor().getName() + "_" + new Date().getTime() + ".pdf");
         FileOutputStream fos = null;
+        log.debug(binaryData);
         try {
             fos = new FileOutputStream(doc);
             fos.write(binaryData.getBytes());
