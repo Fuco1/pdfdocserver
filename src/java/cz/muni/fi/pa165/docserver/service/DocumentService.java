@@ -147,5 +147,5 @@ public interface DocumentService extends GenericEntityService<Document> {
      */
     boolean changeMetaData(long id, String title, Tag[] tags, String description, boolean isPublic);
 
-    byte[] getDocumentFile(long revisionId, long documentId);
+    String getDocumentFile(long revisionId, long documentId);
 }

@@ -13,14 +13,14 @@
      type="java:cz.muni.fi.pa165.docserver.soaptest.Weather" />
 
     <service name="UserService" provider="java:RPC">
-        <parameter name="className" value="cz.muni.fi.pa165.docserver.service.impl.UserServiceImpl" />
+        <parameter name="className" value="cz.muni.fi.pa165.docserver.service.soap.UserWebService" />
         <parameter name="allowedMethods" value="*" />
         <parameter name="wsdlPortType" value="UserService" />
         <parameter name="wsdlTargetNamespace" value="urn:kb-ws-SiteUS" />
     </service>
 
     <service name="DocumentService" provider="java:RPC">
-        <parameter name="className" value="cz.muni.fi.pa165.docserver.service.impl.DocumentServiceImpl" />
+        <parameter name="className" value="cz.muni.fi.pa165.docserver.service.soap.DocumentWebService" />
         <parameter name="allowedMethods" value="*" />
         <parameter name="wsdlPortType" value="DocumentService" />
         <parameter name="wsdlTargetNamespace" value="urn:kb-ws-SiteDS" />

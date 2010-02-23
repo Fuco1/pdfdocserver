@@ -9,13 +9,9 @@ package cz.muni.fi.pa165.local.service.document;
 
 public interface DocumentService extends java.rmi.Remote {
     public void remove(cz.muni.fi.pa165.docserver.entities.Document entity) throws java.rmi.RemoteException;
-    public void remove(java.lang.Object x0) throws java.rmi.RemoteException;
-    public java.lang.Object merge(java.lang.Object x0) throws java.rmi.RemoteException;
     public cz.muni.fi.pa165.docserver.entities.Document merge(cz.muni.fi.pa165.docserver.entities.Document entity) throws java.rmi.RemoteException;
     public boolean addDocument(cz.muni.fi.pa165.local.dto.DocumentDto document, java.lang.String binaryData) throws java.rmi.RemoteException;
     public void persist(cz.muni.fi.pa165.docserver.entities.Document entity) throws java.rmi.RemoteException;
-    public void persist(java.lang.Object x0) throws java.rmi.RemoteException;
-    public void setDocDao(java.lang.Object docDao) throws java.rmi.RemoteException;
     public boolean addDocumentRevision(long id, java.lang.String fileName, java.lang.String binaryData) throws java.rmi.RemoteException;
     public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocumentsByUserId(long id, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException;
     public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocumentsByTags(java.lang.String[] tags, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException;

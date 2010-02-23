@@ -8,6 +8,7 @@ import cz.muni.fi.pa165.docserver.dao.UserDao;
 import cz.muni.fi.pa165.docserver.entities.User;
 import cz.muni.fi.pa165.docserver.service.UserService;
 import java.util.Date;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
+    private static Logger log = Logger.getLogger(UserService.class);
     @Autowired
     private UserDao userDao;
 
@@ -42,6 +44,8 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getUserByName(String name) {
+        log.debug("Calling getUserByName");
+        log.debug("userDao used is: " + userDao);
         return userDao.findByNamedQuery(User.class, "getUserByName", name);
     }
 
@@ -64,7 +68,7 @@ public class UserServiceImpl implements UserService {
         }
         if (user.getPassword().equals(oldPassword)) {
             user.setPassword(newPassword);
-            userDao.persist(user);
+            userDao.merge(user);
             return true;
         }
         else {
