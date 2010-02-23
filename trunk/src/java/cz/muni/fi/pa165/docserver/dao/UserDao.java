@@ -11,4 +11,5 @@ import cz.muni.fi.pa165.docserver.entities.User;
  * @author Matus
  */
 public interface UserDao extends GenericDao<User> {
+
 }

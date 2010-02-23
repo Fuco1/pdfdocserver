@@ -11,15 +11,13 @@ import cz.muni.fi.pa165.docserver.entities.DocumentFile;
 import cz.muni.fi.pa165.docserver.entities.Tag;
 import cz.muni.fi.pa165.docserver.service.DocumentService;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +28,7 @@ import org.springframework.stereotype.Service;
 @Service("documentService")
 public class DocumentServiceImpl implements DocumentService {
 
+    private static Logger log = Logger.getLogger(DocumentService.class);
     @Autowired
     private DocumentDao docDao;
 
@@ -57,7 +56,7 @@ public class DocumentServiceImpl implements DocumentService {
             fos.write(binaryData.getBytes());
             fos.close();
         } catch (IOException ex) {
-            Logger.getLogger(DocumentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage(), ex);
         }
         DocumentFile df = new DocumentFile();
         df.setFilename(doc.getName());
@@ -77,7 +76,7 @@ public class DocumentServiceImpl implements DocumentService {
             fos.write(binaryData.getBytes());
             fos.close();
         } catch (IOException ex) {
-            Logger.getLogger(DocumentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage(), ex);
         }
         DocumentFile df = new DocumentFile();
         df.setFilename(fileName);
@@ -143,8 +142,8 @@ public class DocumentServiceImpl implements DocumentService {
         DocumentDto doc = getDocumentById(docId);
         Document d = DtoToDocument(doc);
         boolean flag = false;
-        for(DocumentFile df : d.getFiles()) {
-            if(df.getId() == docId) {
+        for (DocumentFile df : d.getFiles()) {
+            if (df.getId() == docId) {
                 d.getFiles().remove(df);
                 flag = true;
             }
@@ -191,7 +190,7 @@ public class DocumentServiceImpl implements DocumentService {
         return d;
     }
 
-    public byte[] getDocumentFile(long revisionId, long documentId) {
-        return new byte[0];
+    public String getDocumentFile(long revisionId, long documentId) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

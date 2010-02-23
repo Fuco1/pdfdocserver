@@ -81,9 +81,11 @@ public class UserServiceImplTest {
         System.out.println("addUser");
         String name = "Fero";
         String password = "pass";
-        User expResult = null;
+        User user = new User();
+        user.setName(name);
+        user.setPassword(password);
         User result = instance.addUser(name, password);
-        assertEquals(expResult, result);
+        assertEquals(user, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

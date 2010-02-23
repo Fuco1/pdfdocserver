@@ -26,7 +26,7 @@
  <service name="UserService" provider="java:RPC">
   <parameter name="allowedMethods" value="*"/>
   <parameter name="wsdlPortType" value="UserService"/>
-  <parameter name="className" value="cz.muni.fi.pa165.docserver.service.impl.UserServiceImpl"/>
+  <parameter name="className" value="cz.muni.fi.pa165.docserver.service.soap.UserWebService"/>
   <parameter name="wsdlTargetNamespace" value="urn:kb-ws-SiteUS"/>
  </service>
  <service name="AdminService" provider="java:MSG">
@@ -43,7 +43,7 @@
  <service name="DocumentService" provider="java:RPC">
   <parameter name="allowedMethods" value="*"/>
   <parameter name="wsdlPortType" value="DocumentService"/>
-  <parameter name="className" value="cz.muni.fi.pa165.docserver.service.impl.DocumentServiceImpl"/>
+  <parameter name="className" value="cz.muni.fi.pa165.docserver.service.soap.DocumentWebService"/>
   <parameter name="wsdlTargetNamespace" value="urn:kb-ws-SiteDS"/>
  </service>
  <service name="WeatherService" provider="java:RPC">
