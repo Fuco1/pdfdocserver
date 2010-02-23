@@ -71,7 +71,7 @@ public class DocumentServiceImplTest {
         user.setPassword("pass");
         document.setAuthor(user);
         document.setCreationDate(new Date());
-        document.setDescription("testovaci doc");
+        document.setDescription("testovaci doc...");
         document.setFiles(new DocumentFile[0]);
         document.setIsPublic(true);
         document.setTitle("Skripta");
@@ -85,7 +85,7 @@ public class DocumentServiceImplTest {
         t2.setTag("skripta");
         taggs[1] = t2;
         document.setTags(taggs);
-        String binaryData = pdftoText("C:\\sample.pdf");
+        String binaryData = "";
         boolean expResult = false;
         boolean result = true;
         instance.addDocument(document, binaryData);
@@ -100,7 +100,7 @@ public class DocumentServiceImplTest {
     //@Test
     public void testAddDocumentRevision() {
         System.out.println("addDocumentRevision");
-        long id = 0L;
+        long id = 152L;
         DocumentFile docFile = null;
         String binaryData = "";
         boolean expResult = false;
@@ -133,11 +133,12 @@ public class DocumentServiceImplTest {
     @Test
     public void testGetDocumentsByTags() {
         System.out.println("getDocumentsByTags");
-        String[] tags = null;
+        String[] tags = {"byFero"};
         int from = 0;
-        int num = 1;
+        int num = 2;
         DocumentDto[] expResult = null;
         DocumentDto[] result = instance.getDocumentsByTags(tags, from, num, "");
+        System.out.println(result[0].getTitle());
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

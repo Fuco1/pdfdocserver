@@ -146,4 +146,6 @@ public interface DocumentService extends GenericEntityService<Document> {
      * @return True if all changes are succesfuly reflected, or false otherwise
      */
     boolean changeMetaData(long id, String title, Tag[] tags, String description, boolean isPublic);
+
+    byte[] getDocumentFile(long revisionId, long documentId);
 }

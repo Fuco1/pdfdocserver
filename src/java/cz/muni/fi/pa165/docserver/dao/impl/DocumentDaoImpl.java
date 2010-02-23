@@ -24,8 +24,8 @@ public class DocumentDaoImpl extends GenericDaoImpl<Document> implements Documen
         StringBuilder sb = new StringBuilder();
         sb.append("(");
         for(int i = 0;i<tags.length;i++) {
-            sb.append(" " + tags[i]);
-            if (i!=tags.length) sb.append(",");
+            sb.append(" \"" + tags[i] + "\"");
+            if (i!=tags.length-1) sb.append(",");
         }
         sb.append(")");
         String query = "SELECT d.* FROM (Document d INNER JOIN document_tag it ON d.id = it.document_id) INNER JOIN Tag t ON it.tags_id = t.id WHERE (tag in " + sb.toString() + ") GROUP BY d.id";
