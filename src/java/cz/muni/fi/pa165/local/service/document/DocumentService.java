@@ -24,4 +24,5 @@ public interface DocumentService extends java.rmi.Remote {
     public boolean removeDocument(long id) throws java.rmi.RemoteException;
     public boolean removeDocumentRevision(long docId, long revisionId) throws java.rmi.RemoteException;
     public boolean changeMetaData(long id, java.lang.String title, cz.muni.fi.pa165.local.dto.Tag[] tags, java.lang.String description, boolean isPublic) throws java.rmi.RemoteException;
+    public java.lang.String getDocumentFile(long revisionId, long documentId) throws java.rmi.RemoteException;
 }

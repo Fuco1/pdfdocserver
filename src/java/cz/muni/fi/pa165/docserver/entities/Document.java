@@ -30,9 +30,9 @@ import javax.persistence.Temporal;
                @NamedQuery(name = "getDocumentsByUserIdDate",
                            query = "SELECT d FROM Document d WHERE d.author.id = ?1 ORDER BY d.creationDate ASC"),
                @NamedQuery(name = "getVisible",
-                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 OR d.isPublic ORDER BY d.title ASC"),
+                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 OR d.isPublic = true ORDER BY d.title ASC"),
                @NamedQuery(name = "getVisibleByDate",
-                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 OR d.isPublic ORDER BY d.creatiionDate ASC")
+                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 OR d.isPublic = true ORDER BY d.creatiionDate ASC")
 })
 public class Document implements Serializable {
 
