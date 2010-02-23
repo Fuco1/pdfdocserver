@@ -97,7 +97,8 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public DocumentDto[] getDocumentsByTags(String[] tags, int from, int num, String orderBy) {
-        List<Document> docs = docDao.executeNamedQuery(null, tags);
+        List<Document> docs = docDao.findByTags(tags);
+
         DocumentDto[] ret = new DocumentDto[docs.size()];
         for (int i = 0; i < docs.size(); i++) {
             ret[i] = documentToDto(docs.get(i));
@@ -106,7 +107,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public DocumentDto[] getDocumentsByFulltext(String[] query, int from, int num, String orderBy) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return getDocumentsByTags(query, from, num, orderBy);
     }
 
     public DocumentDto[] getDocuments(int id, int from, int num, String orderBy) {
@@ -122,7 +123,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public int getDocumentCountByFulltext(String[] query) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return getDocumentCountByTags(query);
     }
 
     public DocumentDto getDocumentById(long id) {
@@ -139,7 +140,17 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public boolean removeDocumentRevision(long docId, long revisionId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        DocumentDto doc = getDocumentById(docId);
+        Document d = DtoToDocument(doc);
+        boolean flag = false;
+        for(DocumentFile df : d.getFiles()) {
+            if(df.getId() == docId) {
+                d.getFiles().remove(df);
+                flag = true;
+            }
+        }
+        docDao.merge(d);
+        return flag;
     }
 
     public boolean changeMetaData(long id, String title, Tag[] tags, String description, boolean isPublic) {
@@ -178,5 +189,9 @@ public class DocumentServiceImpl implements DocumentService {
         d.setFiles(files);
         d.setTitle(doc.getTitle());
         return d;
+    }
+
+    public byte[] getDocumentFile(long revisionId, long documentId) {
+        return new byte[0];
     }
 }
