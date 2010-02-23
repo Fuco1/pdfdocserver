@@ -13,5 +13,5 @@ import java.util.List;
  * @author Matus
  */
 public interface DocumentDao extends GenericDao<Document> {
-     public List<Document> findByTags(String[] tags);
+     public List<Document> findByTags(String[] tags, String orderBy);
 }

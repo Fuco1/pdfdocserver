@@ -10,9 +10,14 @@ import cz.muni.fi.pa165.docserver.entities.Document;
 import cz.muni.fi.pa165.docserver.entities.DocumentFile;
 import cz.muni.fi.pa165.docserver.entities.Tag;
 import cz.muni.fi.pa165.docserver.service.DocumentService;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PipedOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -87,7 +92,9 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public DocumentDto[] getDocumentsByUserId(long id, int from, int num, String orderBy) {
-        List<Document> docs = docDao.executeNamedQuery("getDocumentsByUserId", from, num, id);
+        List<Document> docs = null;
+        if ("title".equals(orderBy)) docs = docDao.executeNamedQuery("getDocumentsByUserId", from, num, id);
+        if ("date".equals(orderBy)) docs = docDao.executeNamedQuery("getDocumentsByUserIdDate", from, num, id);
         DocumentDto[] ret = new DocumentDto[docs.size()];
         for (int i = 0; i < docs.size(); i++) {
             ret[i] = documentToDto(docs.get(i));
@@ -96,7 +103,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public DocumentDto[] getDocumentsByTags(String[] tags, int from, int num, String orderBy) {
-        List<Document> docs = docDao.findByTags(tags);
+        List<Document> docs = docDao.findByTags(tags, orderBy);
 
         DocumentDto[] ret = new DocumentDto[docs.size()];
         for (int i = 0; i < docs.size(); i++) {
@@ -110,7 +117,14 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public DocumentDto[] getDocuments(int id, int from, int num, String orderBy) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List<Document> docs = null;
+        if (orderBy.equals("title")) docs = docDao.executeNamedQuery("", id, from, num);
+        if (orderBy.equals("date")) docs = docDao.executeNamedQuery("", id, from, num);
+        DocumentDto[] ret = new DocumentDto[docs.size()];
+        for (int i = 0; i < docs.size(); i++) {
+            ret[i] = documentToDto(docs.get(i));
+        }
+        return ret;
     }
 
     public int getDocumentCountByUserId(long id) {
@@ -118,7 +132,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public int getDocumentCountByTags(String[] tags) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return docDao.findByTags(tags, "title").size();
     }
 
     public int getDocumentCountByFulltext(String[] query) {
@@ -191,6 +205,24 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public String getDocumentFile(long revisionId, long documentId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Document document = docDao.find(documentId);
+        DocumentFile file = null;
+        for (DocumentFile df : document.getFiles()){
+            if(df.getId() == revisionId) file = df;
+        }
+        File text = new File(document.getTitle() + "_" + document.getAuthor().getName() + "_" + new Date().getTime() + ".pdf");
+        FileInputStream fis;
+        String ret = "";
+        try {
+            fis = new FileInputStream(text);
+            BufferedInputStream bis = new BufferedInputStream(fis);
+            byte[] bytes = new byte[bis.available()];
+            bis.read(bytes);
+            ret = new String(bytes);
+         } catch (IOException ex) {
+           // Logger.getLogger(DocumentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ret;
+
     }
 }

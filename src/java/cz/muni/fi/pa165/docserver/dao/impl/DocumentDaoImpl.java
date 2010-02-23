@@ -19,7 +19,7 @@ import org.springframework.stereotype.Repository;
 @Repository("documentDao")
 public class DocumentDaoImpl extends GenericDaoImpl<Document> implements DocumentDao {
 
-    public List<Document> findByTags(String[] tags) {
+    public List<Document> findByTags(String[] tags, String orderBy) {
         EntityManager em = getJpaTemplate().getEntityManagerFactory().createEntityManager();
         StringBuilder sb = new StringBuilder();
         sb.append("(");
@@ -28,7 +28,10 @@ public class DocumentDaoImpl extends GenericDaoImpl<Document> implements Documen
             if (i!=tags.length-1) sb.append(",");
         }
         sb.append(")");
-        String query = "SELECT d.* FROM (Document d INNER JOIN document_tag it ON d.id = it.document_id) INNER JOIN Tag t ON it.tags_id = t.id WHERE (tag in " + sb.toString() + ") GROUP BY d.id";
+        String order = "";
+        if (orderBy.equals("title")) order = "d.title";
+        if (orderBy.equals("date")) order = "d.creationDate";
+        String query = "SELECT d.* FROM (Document d INNER JOIN document_tag it ON d.id = it.document_id) INNER JOIN Tag t ON it.tags_id = t.id WHERE (tag in " + sb.toString() + ") GROUP BY d.id ORDER BY " + order;
         Query q = em.createNativeQuery(query, Document.class);
         List<Document> list = (List<Document>) q.getResultList();
         return list;
