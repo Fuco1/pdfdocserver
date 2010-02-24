@@ -24,7 +24,7 @@ import javax.persistence.Temporal;
  */
 @Entity
 @NamedQueries({@NamedQuery(name = "getDocumentsByUserId",
-                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 OR d.isPublic = true ORDER BY d.title ASC"),
+                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 ORDER BY d.title ASC"),
                @NamedQuery(name = "getDocumentCountByUserId",
                            query = "SELECT count(d) FROM Document d WHERE d.author.id = ?1"),
                @NamedQuery(name = "getDocumentsByUserIdDate",

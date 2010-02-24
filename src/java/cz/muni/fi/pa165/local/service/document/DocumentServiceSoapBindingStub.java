@@ -4,16 +4,15 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
-
 package cz.muni.fi.pa165.local.service.document;
 
 public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub implements cz.muni.fi.pa165.local.service.document.DocumentService {
+
     private java.util.Vector cachedSerClasses = new java.util.Vector();
     private java.util.Vector cachedSerQNames = new java.util.Vector();
     private java.util.Vector cachedSerFactories = new java.util.Vector();
     private java.util.Vector cachedDeserFactories = new java.util.Vector();
-
-    static org.apache.axis.description.OperationDesc [] _operations;
+    static org.apache.axis.description.OperationDesc[] _operations;
 
     static {
         _operations = new org.apache.axis.description.OperationDesc[21];
@@ -22,7 +21,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
         _initOperationDesc3();
     }
 
-    private static void _initOperationDesc1(){
+    private static void _initOperationDesc1() {
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
@@ -147,7 +146,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
     }
 
-    private static void _initOperationDesc2(){
+    private static void _initOperationDesc2() {
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
@@ -284,7 +283,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
     }
 
-    private static void _initOperationDesc3(){
+    private static void _initOperationDesc3() {
         org.apache.axis.description.OperationDesc oper;
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
@@ -303,113 +302,114 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
     }
 
     public DocumentServiceSoapBindingStub() throws org.apache.axis.AxisFault {
-         this(null);
+        this(null);
     }
 
     public DocumentServiceSoapBindingStub(java.net.URL endpointURL, javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
-         this(service);
-         super.cachedEndpoint = endpointURL;
+        this(service);
+        super.cachedEndpoint = endpointURL;
     }
 
     public DocumentServiceSoapBindingStub(javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
         if (service == null) {
             super.service = new org.apache.axis.client.Service();
-        } else {
+        }
+        else {
             super.service = service;
         }
-        ((org.apache.axis.client.Service)super.service).setTypeMappingVersion("1.2");
-            java.lang.Class cls;
-            javax.xml.namespace.QName qName;
-            javax.xml.namespace.QName qName2;
-            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
-            qName = new javax.xml.namespace.QName("http://entities.docserver.pa165.fi.muni.cz", "Document");
-            cachedSerQNames.add(qName);
-            cls = cz.muni.fi.pa165.docserver.entities.Document.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        ((org.apache.axis.client.Service) super.service).setTypeMappingVersion("1.2");
+        java.lang.Class cls;
+        javax.xml.namespace.QName qName;
+        javax.xml.namespace.QName qName2;
+        java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+        java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+        java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+        java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+        java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+        java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+        java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+        java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+        java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+        java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+        qName = new javax.xml.namespace.QName("http://entities.docserver.pa165.fi.muni.cz", "Document");
+        cachedSerQNames.add(qName);
+        cls = cz.muni.fi.pa165.docserver.entities.Document.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("urn:axis-documentdto", "DocumentDto");
-            cachedSerQNames.add(qName);
-            cls = cz.muni.fi.pa165.local.dto.DocumentDto.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("urn:axis-documentdto", "DocumentDto");
+        cachedSerQNames.add(qName);
+        cls = cz.muni.fi.pa165.local.dto.DocumentDto.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("urn:axis-documentfile", "DocumentFile");
-            cachedSerQNames.add(qName);
-            cls = cz.muni.fi.pa165.local.dto.DocumentFile.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("urn:axis-documentfile", "DocumentFile");
+        cachedSerQNames.add(qName);
+        cls = cz.muni.fi.pa165.local.dto.DocumentFile.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("urn:axis-tag", "Tag");
-            cachedSerQNames.add(qName);
-            cls = cz.muni.fi.pa165.local.dto.Tag.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("urn:axis-tag", "Tag");
+        cachedSerQNames.add(qName);
+        cls = cz.muni.fi.pa165.local.dto.Tag.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("urn:axis-user", "User");
-            cachedSerQNames.add(qName);
-            cls = cz.muni.fi.pa165.local.dto.User.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
+        qName = new javax.xml.namespace.QName("urn:axis-user", "User");
+        cachedSerQNames.add(qName);
+        cls = cz.muni.fi.pa165.local.dto.User.class;
+        cachedSerClasses.add(cls);
+        cachedSerFactories.add(beansf);
+        cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("urn:kb-ws-SiteDS", "ArrayOf_tns3_DocumentDto");
-            cachedSerQNames.add(qName);
-            cls = cz.muni.fi.pa165.local.dto.DocumentDto[].class;
-            cachedSerClasses.add(cls);
-            qName = new javax.xml.namespace.QName("urn:axis-documentdto", "DocumentDto");
-            qName2 = null;
-            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
-            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+        qName = new javax.xml.namespace.QName("urn:kb-ws-SiteDS", "ArrayOf_tns3_DocumentDto");
+        cachedSerQNames.add(qName);
+        cls = cz.muni.fi.pa165.local.dto.DocumentDto[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("urn:axis-documentdto", "DocumentDto");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-            qName = new javax.xml.namespace.QName("urn:kb-ws-SiteDS", "ArrayOf_tns4_DocumentFile");
-            cachedSerQNames.add(qName);
-            cls = cz.muni.fi.pa165.local.dto.DocumentFile[].class;
-            cachedSerClasses.add(cls);
-            qName = new javax.xml.namespace.QName("urn:axis-documentfile", "DocumentFile");
-            qName2 = null;
-            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
-            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+        qName = new javax.xml.namespace.QName("urn:kb-ws-SiteDS", "ArrayOf_tns4_DocumentFile");
+        cachedSerQNames.add(qName);
+        cls = cz.muni.fi.pa165.local.dto.DocumentFile[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("urn:axis-documentfile", "DocumentFile");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-            qName = new javax.xml.namespace.QName("urn:kb-ws-SiteDS", "ArrayOf_tns5_Tag");
-            cachedSerQNames.add(qName);
-            cls = cz.muni.fi.pa165.local.dto.Tag[].class;
-            cachedSerClasses.add(cls);
-            qName = new javax.xml.namespace.QName("urn:axis-tag", "Tag");
-            qName2 = null;
-            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
-            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+        qName = new javax.xml.namespace.QName("urn:kb-ws-SiteDS", "ArrayOf_tns5_Tag");
+        cachedSerQNames.add(qName);
+        cls = cz.muni.fi.pa165.local.dto.Tag[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("urn:axis-tag", "Tag");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-            qName = new javax.xml.namespace.QName("urn:kb-ws-SiteDS", "ArrayOf_xsd_anyType");
-            cachedSerQNames.add(qName);
-            cls = java.lang.Object[].class;
-            cachedSerClasses.add(cls);
-            qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType");
-            qName2 = null;
-            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
-            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+        qName = new javax.xml.namespace.QName("urn:kb-ws-SiteDS", "ArrayOf_xsd_anyType");
+        cachedSerQNames.add(qName);
+        cls = java.lang.Object[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-            qName = new javax.xml.namespace.QName("urn:kb-ws-SiteDS", "ArrayOf_xsd_string");
-            cachedSerQNames.add(qName);
-            cls = java.lang.String[].class;
-            cachedSerClasses.add(cls);
-            qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string");
-            qName2 = null;
-            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
-            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+        qName = new javax.xml.namespace.QName("urn:kb-ws-SiteDS", "ArrayOf_xsd_string");
+        cachedSerQNames.add(qName);
+        cls = java.lang.String[].class;
+        cachedSerClasses.add(cls);
+        qName = new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string");
+        qName2 = null;
+        cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+        cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
     }
 
@@ -452,28 +452,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
                     for (int i = 0; i < cachedSerFactories.size(); ++i) {
                         java.lang.Class cls = (java.lang.Class) cachedSerClasses.get(i);
                         javax.xml.namespace.QName qName =
-                                (javax.xml.namespace.QName) cachedSerQNames.get(i);
+                          (javax.xml.namespace.QName) cachedSerQNames.get(i);
                         java.lang.Object x = cachedSerFactories.get(i);
                         if (x instanceof Class) {
-                            java.lang.Class sf = (java.lang.Class)
-                                 cachedSerFactories.get(i);
-                            java.lang.Class df = (java.lang.Class)
-                                 cachedDeserFactories.get(i);
+                            java.lang.Class sf = (java.lang.Class) cachedSerFactories.get(i);
+                            java.lang.Class df = (java.lang.Class) cachedDeserFactories.get(i);
                             _call.registerTypeMapping(cls, qName, sf, df, false);
                         }
                         else if (x instanceof javax.xml.rpc.encoding.SerializerFactory) {
-                            org.apache.axis.encoding.SerializerFactory sf = (org.apache.axis.encoding.SerializerFactory)
-                                 cachedSerFactories.get(i);
-                            org.apache.axis.encoding.DeserializerFactory df = (org.apache.axis.encoding.DeserializerFactory)
-                                 cachedDeserFactories.get(i);
+                            org.apache.axis.encoding.SerializerFactory sf = (org.apache.axis.encoding.SerializerFactory) cachedSerFactories.get(i);
+                            org.apache.axis.encoding.DeserializerFactory df = (org.apache.axis.encoding.DeserializerFactory) cachedDeserFactories.get(i);
                             _call.registerTypeMapping(cls, qName, sf, df, false);
                         }
                     }
                 }
             }
             return _call;
-        }
-        catch (java.lang.Throwable _t) {
+        } catch (java.lang.Throwable _t) {
             throw new org.apache.axis.AxisFault("Failure trying to get the Call object", _t);
         }
     }
@@ -491,15 +486,16 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {x0});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{x0});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            }
+            extractAttachments(_call);
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-        extractAttachments(_call);
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public void remove(cz.muni.fi.pa165.docserver.entities.Document entity) throws java.rmi.RemoteException {
@@ -515,15 +511,16 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {entity});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{entity});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            }
+            extractAttachments(_call);
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-        extractAttachments(_call);
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public cz.muni.fi.pa165.docserver.entities.Document merge(cz.muni.fi.pa165.docserver.entities.Document entity) throws java.rmi.RemoteException {
@@ -539,22 +536,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {entity});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{entity});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (cz.muni.fi.pa165.docserver.entities.Document) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (cz.muni.fi.pa165.docserver.entities.Document) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.docserver.entities.Document.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return (cz.muni.fi.pa165.docserver.entities.Document) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (cz.muni.fi.pa165.docserver.entities.Document) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.docserver.entities.Document.class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.Object merge(java.lang.Object x0) throws java.rmi.RemoteException {
@@ -570,22 +568,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {x0});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{x0});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.Object) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public boolean addDocument(cz.muni.fi.pa165.local.dto.DocumentDto document, java.lang.String binaryData) throws java.rmi.RemoteException {
@@ -601,22 +600,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {document, binaryData});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{document, binaryData});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Boolean) _resp).booleanValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return ((java.lang.Boolean) _resp).booleanValue();
+                } catch (java.lang.Exception _exception) {
+                    return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public void persist(cz.muni.fi.pa165.docserver.entities.Document entity) throws java.rmi.RemoteException {
@@ -632,15 +632,16 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {entity});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{entity});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            }
+            extractAttachments(_call);
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-        extractAttachments(_call);
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public void persist(java.lang.Object x0) throws java.rmi.RemoteException {
@@ -656,15 +657,16 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {x0});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{x0});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
+            }
+            extractAttachments(_call);
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-        extractAttachments(_call);
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public boolean addDocumentRevision(long id, java.lang.String fileName, java.lang.String binaryData) throws java.rmi.RemoteException {
@@ -680,22 +682,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(id), fileName, binaryData});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{new java.lang.Long(id), fileName, binaryData});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Boolean) _resp).booleanValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return ((java.lang.Boolean) _resp).booleanValue();
+                } catch (java.lang.Exception _exception) {
+                    return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocumentsByUserId(long id, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException {
@@ -711,22 +714,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(id), new java.lang.Integer(from), new java.lang.Integer(num), orderBy});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{new java.lang.Long(id), new java.lang.Integer(from), new java.lang.Integer(num), orderBy});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (cz.muni.fi.pa165.local.dto.DocumentDto[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (cz.muni.fi.pa165.local.dto.DocumentDto[]) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.local.dto.DocumentDto[].class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return (cz.muni.fi.pa165.local.dto.DocumentDto[]) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (cz.muni.fi.pa165.local.dto.DocumentDto[]) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.local.dto.DocumentDto[].class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocumentsByTags(java.lang.String[] tags, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException {
@@ -742,22 +746,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {tags, new java.lang.Integer(from), new java.lang.Integer(num), orderBy});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{tags, new java.lang.Integer(from), new java.lang.Integer(num), orderBy});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (cz.muni.fi.pa165.local.dto.DocumentDto[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (cz.muni.fi.pa165.local.dto.DocumentDto[]) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.local.dto.DocumentDto[].class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return (cz.muni.fi.pa165.local.dto.DocumentDto[]) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (cz.muni.fi.pa165.local.dto.DocumentDto[]) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.local.dto.DocumentDto[].class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocumentsByFulltext(java.lang.String[] query, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException {
@@ -773,22 +778,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {query, new java.lang.Integer(from), new java.lang.Integer(num), orderBy});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{query, new java.lang.Integer(from), new java.lang.Integer(num), orderBy});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (cz.muni.fi.pa165.local.dto.DocumentDto[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (cz.muni.fi.pa165.local.dto.DocumentDto[]) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.local.dto.DocumentDto[].class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return (cz.muni.fi.pa165.local.dto.DocumentDto[]) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (cz.muni.fi.pa165.local.dto.DocumentDto[]) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.local.dto.DocumentDto[].class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocuments(long id, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException {
@@ -804,22 +810,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(id), new java.lang.Integer(from), new java.lang.Integer(num), orderBy});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{new java.lang.Long(id), new java.lang.Integer(from), new java.lang.Integer(num), orderBy});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (cz.muni.fi.pa165.local.dto.DocumentDto[]) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (cz.muni.fi.pa165.local.dto.DocumentDto[]) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.local.dto.DocumentDto[].class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return (cz.muni.fi.pa165.local.dto.DocumentDto[]) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (cz.muni.fi.pa165.local.dto.DocumentDto[]) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.local.dto.DocumentDto[].class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public int getDocumentCountByUserId(long id) throws java.rmi.RemoteException {
@@ -835,22 +842,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(id)});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{new java.lang.Long(id)});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return ((java.lang.Integer) _resp).intValue();
+                } catch (java.lang.Exception _exception) {
+                    return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public int getDocumentCountByTags(java.lang.String[] tags) throws java.rmi.RemoteException {
@@ -866,22 +874,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {tags});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{tags});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return ((java.lang.Integer) _resp).intValue();
+                } catch (java.lang.Exception _exception) {
+                    return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public int getDocumentCountByFulltext(java.lang.String[] query) throws java.rmi.RemoteException {
@@ -897,22 +906,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {query});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{query});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return ((java.lang.Integer) _resp).intValue();
+                } catch (java.lang.Exception _exception) {
+                    return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public int getDocumentCount(long id) throws java.rmi.RemoteException {
@@ -928,22 +938,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(id)});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{new java.lang.Long(id)});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Integer) _resp).intValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return ((java.lang.Integer) _resp).intValue();
+                } catch (java.lang.Exception _exception) {
+                    return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public cz.muni.fi.pa165.local.dto.DocumentDto getDocumentById(long id) throws java.rmi.RemoteException {
@@ -959,22 +970,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(id)});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{new java.lang.Long(id)});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (cz.muni.fi.pa165.local.dto.DocumentDto) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (cz.muni.fi.pa165.local.dto.DocumentDto) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.local.dto.DocumentDto.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return (cz.muni.fi.pa165.local.dto.DocumentDto) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (cz.muni.fi.pa165.local.dto.DocumentDto) org.apache.axis.utils.JavaUtils.convert(_resp, cz.muni.fi.pa165.local.dto.DocumentDto.class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public boolean removeDocument(long id) throws java.rmi.RemoteException {
@@ -990,22 +1002,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(id)});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{new java.lang.Long(id)});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Boolean) _resp).booleanValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return ((java.lang.Boolean) _resp).booleanValue();
+                } catch (java.lang.Exception _exception) {
+                    return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public boolean removeDocumentRevision(long docId, long revisionId) throws java.rmi.RemoteException {
@@ -1021,22 +1034,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(docId), new java.lang.Long(revisionId)});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{new java.lang.Long(docId), new java.lang.Long(revisionId)});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Boolean) _resp).booleanValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return ((java.lang.Boolean) _resp).booleanValue();
+                } catch (java.lang.Exception _exception) {
+                    return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public boolean changeMetaData(long id, java.lang.String title, cz.muni.fi.pa165.local.dto.Tag[] tags, java.lang.String description, boolean isPublic) throws java.rmi.RemoteException {
@@ -1052,22 +1066,23 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(id), title, tags, description, new java.lang.Boolean(isPublic)});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{new java.lang.Long(id), title, tags, description, new java.lang.Boolean(isPublic)});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return ((java.lang.Boolean) _resp).booleanValue();
-            } catch (java.lang.Exception _exception) {
-                return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return ((java.lang.Boolean) _resp).booleanValue();
+                } catch (java.lang.Exception _exception) {
+                    return ((java.lang.Boolean) org.apache.axis.utils.JavaUtils.convert(_resp, boolean.class)).booleanValue();
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
 
     public java.lang.String getDocumentFile(long revisionId, long documentId) throws java.rmi.RemoteException {
@@ -1083,22 +1098,22 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(revisionId), new java.lang.Long(documentId)});
+        try {
+            java.lang.Object _resp = _call.invoke(new java.lang.Object[]{new java.lang.Long(revisionId), new java.lang.Long(documentId)});
 
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.String) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+            if (_resp instanceof java.rmi.RemoteException) {
+                throw (java.rmi.RemoteException) _resp;
             }
+            else {
+                extractAttachments(_call);
+                try {
+                    return (java.lang.String) _resp;
+                } catch (java.lang.Exception _exception) {
+                    return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+                }
+            }
+        } catch (org.apache.axis.AxisFault axisFaultException) {
+            throw axisFaultException;
         }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
     }
-
 }
