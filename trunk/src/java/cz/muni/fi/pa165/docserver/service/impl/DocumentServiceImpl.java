@@ -140,7 +140,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public int getDocumentCountByUserId(long id) {
-        return docDao.findByNamedQuery(Integer.class, "getDocumentCountByUserId", id);
+        return docDao.findByNamedQuery(Long.class, "getDocumentCountByUserId", id).intValue();
     }
 
     public int getDocumentCountByTags(String[] tags) {
@@ -152,7 +152,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public int getDocumentCount(long id) {
-        return docDao.findByNamedQuery(Integer.class, "getVisibleCount", id);
+        return docDao.findByNamedQuery(Long.class, "getVisibleCount", id).intValue();
     }
 
     public DocumentDto getDocumentById(long id) {
@@ -187,6 +187,7 @@ public class DocumentServiceImpl implements DocumentService {
         if (doc == null) {
             return false;
         }
+        doc.setTitle(title);
         doc.setTags(Arrays.asList(tags));
         doc.setDescription(description);
         doc.setIsPublic(isPublic);
