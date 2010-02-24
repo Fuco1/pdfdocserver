@@ -16,9 +16,8 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[11];
+        _operations = new org.apache.axis.description.OperationDesc[10];
         _initOperationDesc1();
-        _initOperationDesc2();
     }
 
     private static void _initOperationDesc1(){
@@ -26,7 +25,7 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("remove");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "entity"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:axis-user", "User"), cz.muni.fi.pa165.local.dto.User.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "x0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"), java.lang.Object.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
@@ -35,7 +34,7 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("remove");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "x0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"), java.lang.Object.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "entity"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:axis-user", "User"), cz.muni.fi.pa165.local.dto.User.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
@@ -44,10 +43,10 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("merge");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "x0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"), java.lang.Object.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "entity"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:axis-user", "User"), cz.muni.fi.pa165.local.dto.User.class, false, false);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"));
-        oper.setReturnClass(java.lang.Object.class);
+        oper.setReturnType(new javax.xml.namespace.QName("urn:axis-user", "User"));
+        oper.setReturnClass(cz.muni.fi.pa165.local.dto.User.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "mergeReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
@@ -55,10 +54,10 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("merge");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "entity"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("urn:axis-user", "User"), cz.muni.fi.pa165.local.dto.User.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "x0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"), java.lang.Object.class, false, false);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("urn:axis-user", "User"));
-        oper.setReturnClass(cz.muni.fi.pa165.local.dto.User.class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"));
+        oper.setReturnClass(java.lang.Object.class);
         oper.setReturnQName(new javax.xml.namespace.QName("", "mergeReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
@@ -83,15 +82,6 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         _operations[5] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("setUserDao");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "userDao"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "anyType"), java.lang.Object.class, false, false);
-        oper.addParameter(param);
-        oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
-        oper.setStyle(org.apache.axis.constants.Style.RPC);
-        oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[6] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getUserById");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
@@ -100,7 +90,7 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         oper.setReturnQName(new javax.xml.namespace.QName("", "getUserByIdReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[7] = oper;
+        _operations[6] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getUserByName");
@@ -111,7 +101,7 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         oper.setReturnQName(new javax.xml.namespace.QName("", "getUserByNameReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[8] = oper;
+        _operations[7] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("addUser");
@@ -124,13 +114,8 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         oper.setReturnQName(new javax.xml.namespace.QName("", "addUserReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[9] = oper;
+        _operations[8] = oper;
 
-    }
-
-    private static void _initOperationDesc2(){
-        org.apache.axis.description.OperationDesc oper;
-        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("changePassword");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
@@ -144,7 +129,7 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         oper.setReturnQName(new javax.xml.namespace.QName("", "changePasswordReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[10] = oper;
+        _operations[9] = oper;
 
     }
 
@@ -251,7 +236,7 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         }
     }
 
-    public void remove(cz.muni.fi.pa165.local.dto.User entity) throws java.rmi.RemoteException {
+    public void remove(java.lang.Object x0) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -260,7 +245,31 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://impl.service.docserver.pa165.fi.muni.cz", "remove"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://soap.service.docserver.pa165.fi.muni.cz", "remove"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {x0});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        extractAttachments(_call);
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public void remove(cz.muni.fi.pa165.local.dto.User entity) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[1]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://soap.service.docserver.pa165.fi.muni.cz", "remove"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -275,31 +284,7 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
 }
     }
 
-    public void remove(java.lang.Object x0) throws java.rmi.RemoteException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[1]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://impl.service.docserver.pa165.fi.muni.cz", "remove"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {x0});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        extractAttachments(_call);
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
-    }
-
-    public java.lang.Object merge(java.lang.Object x0) throws java.rmi.RemoteException {
+    public cz.muni.fi.pa165.local.dto.User merge(cz.muni.fi.pa165.local.dto.User entity) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -308,38 +293,7 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://impl.service.docserver.pa165.fi.muni.cz", "merge"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {x0});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        else {
-            extractAttachments(_call);
-            try {
-                return (java.lang.Object) _resp;
-            } catch (java.lang.Exception _exception) {
-                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
-            }
-        }
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
-    }
-
-    public cz.muni.fi.pa165.local.dto.User merge(cz.muni.fi.pa165.local.dto.User entity) throws java.rmi.RemoteException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[3]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://impl.service.docserver.pa165.fi.muni.cz", "merge"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://soap.service.docserver.pa165.fi.muni.cz", "merge"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -361,6 +315,37 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
 }
     }
 
+    public java.lang.Object merge(java.lang.Object x0) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[3]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://soap.service.docserver.pa165.fi.muni.cz", "merge"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {x0});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.Object) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.Object) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.Object.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
     public void persist(cz.muni.fi.pa165.local.dto.User entity) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
@@ -370,7 +355,7 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://impl.service.docserver.pa165.fi.muni.cz", "persist"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://soap.service.docserver.pa165.fi.muni.cz", "persist"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -394,35 +379,11 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://impl.service.docserver.pa165.fi.muni.cz", "persist"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://soap.service.docserver.pa165.fi.muni.cz", "persist"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
  try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {x0});
-
-        if (_resp instanceof java.rmi.RemoteException) {
-            throw (java.rmi.RemoteException)_resp;
-        }
-        extractAttachments(_call);
-  } catch (org.apache.axis.AxisFault axisFaultException) {
-  throw axisFaultException;
-}
-    }
-
-    public void setUserDao(java.lang.Object userDao) throws java.rmi.RemoteException {
-        if (super.cachedEndpoint == null) {
-            throw new org.apache.axis.NoEndPointException();
-        }
-        org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[6]);
-        _call.setUseSOAPAction(true);
-        _call.setSOAPActionURI("");
-        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://impl.service.docserver.pa165.fi.muni.cz", "setUserDao"));
-
-        setRequestHeaders(_call);
-        setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {userDao});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -438,11 +399,11 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[7]);
+        _call.setOperation(_operations[6]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://impl.service.docserver.pa165.fi.muni.cz", "getUserById"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://soap.service.docserver.pa165.fi.muni.cz", "getUserById"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -469,11 +430,11 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[8]);
+        _call.setOperation(_operations[7]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://impl.service.docserver.pa165.fi.muni.cz", "getUserByName"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://soap.service.docserver.pa165.fi.muni.cz", "getUserByName"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -500,11 +461,11 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[9]);
+        _call.setOperation(_operations[8]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://impl.service.docserver.pa165.fi.muni.cz", "addUser"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://soap.service.docserver.pa165.fi.muni.cz", "addUser"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -531,11 +492,11 @@ public class UserServiceSoapBindingStub extends org.apache.axis.client.Stub impl
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[10]);
+        _call.setOperation(_operations[9]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://impl.service.docserver.pa165.fi.muni.cz", "changePassword"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://soap.service.docserver.pa165.fi.muni.cz", "changePassword"));
 
         setRequestHeaders(_call);
         setAttachments(_call);

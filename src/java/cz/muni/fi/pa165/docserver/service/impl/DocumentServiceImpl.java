@@ -54,9 +54,10 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public boolean addDocument(DocumentDto document, String binaryData) {
-        File doc = new File(document.getTitle() + "_" + document.getAuthor().getName() + "_" + new Date().getTime() + ".pdf");
+        Date now = new Date();
+        File doc = new File(document.getTitle() + "_" + document.getAuthor().getName() + "_" + now.getTime() + ".pdf");
         FileOutputStream fos = null;
-        log.debug(binaryData);
+        //log.debug(binaryData);
         try {
             fos = new FileOutputStream(doc);
             fos.write(binaryData.getBytes());
@@ -64,10 +65,12 @@ public class DocumentServiceImpl implements DocumentService {
         } catch (IOException ex) {
             log.error(ex.getMessage(), ex);
         }
+
+
         DocumentFile df = new DocumentFile();
         df.setFilename(doc.getName());
-        Date now = new Date();
         df.setCreationDate(now);
+
         document.setCreationDate(now);
 
         DocumentFile[] files = {(df)};
@@ -77,19 +80,21 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     public boolean addDocumentRevision(long id, String fileName, String binaryData) {
+        Date now = new Date();
         Document document = docDao.find(id);
-        File doc = new File(document.getTitle() + "_" + document.getAuthor().getName() + "_" + new Date().getTime() + ".pdf");
+        File doc = new File(document.getTitle() + "_" + document.getAuthor().getName() + "_" + now.getTime() + ".pdf");
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(doc);
             fos.write(binaryData.getBytes());
+            fos.flush();
             fos.close();
         } catch (IOException ex) {
             log.error(ex.getMessage(), ex);
         }
         DocumentFile df = new DocumentFile();
         df.setFilename(fileName);
-        df.setCreationDate(new Date());
+        df.setCreationDate(now);
         document.getFiles().add(df);
         docDao.merge(document);
         return true;
@@ -229,19 +234,25 @@ public class DocumentServiceImpl implements DocumentService {
                 file = df;
             }
         }
-        File text = new File(document.getTitle() + "_" + document.getAuthor().getName() + "_" + new Date().getTime() + ".pdf");
+        //File text = new File(document.getTitle() + "_" + document.getAuthor().getName() + "_" + file.getCreationDate().getTime() + ".pdf");
+        File text = new File(file.getFilename());
         FileInputStream fis;
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         String ret = "";
         try {
             fis = new FileInputStream(text);
             BufferedInputStream bis = new BufferedInputStream(fis);
-            byte[] bytes = new byte[bis.available()];
-            bis.read(bytes);
-            ret = new String(bytes);
+            byte[] bytes = new byte[16384];
+            int read = 0;
+            while ((read = bis.read(bytes)) != -1) {
+                buffer.write(bytes, 0, read);
+            }
+            //bis.read(bytes);
+            //ret = new String(bytes);
+            ret = new String(buffer.toByteArray());
         } catch (IOException ex) {
-            // Logger.getLogger(DocumentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            log.error(ex.getMessage(), ex);
         }
         return ret;
-
     }
 }

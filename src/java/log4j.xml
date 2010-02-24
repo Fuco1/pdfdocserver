@@ -45,14 +45,14 @@
     </logger>
     
     <category name="org.springframework">
-        <priority value="debug"/>
+        <priority value="info"/>
 <!--        <appender-ref ref="FILE" />
         <appender-ref ref="STDOUT" />
         <appender-ref ref="STDERR" />-->
     </category>
     
     <category name="org.apache.axis">
-        <priority value="debug"/>
+        <priority value="info"/>
 <!--        <appender-ref ref="FILE" />
         <appender-ref ref="STDOUT" />
         <appender-ref ref="STDERR" />-->
