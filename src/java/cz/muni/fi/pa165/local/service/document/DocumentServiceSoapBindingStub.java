@@ -16,9 +16,10 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[20];
+        _operations = new org.apache.axis.description.OperationDesc[21];
         _initOperationDesc1();
         _initOperationDesc2();
+        _initOperationDesc3();
     }
 
     private static void _initOperationDesc1(){
@@ -168,7 +169,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getDocuments");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "from"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
         oper.addParameter(param);
@@ -217,6 +218,17 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
         _operations[14] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("getDocumentCount");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        oper.setReturnClass(int.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("", "getDocumentCountReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.RPC);
+        oper.setUse(org.apache.axis.constants.Use.ENCODED);
+        _operations[15] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getDocumentById");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "id"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
         oper.addParameter(param);
@@ -225,7 +237,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
         oper.setReturnQName(new javax.xml.namespace.QName("", "getDocumentByIdReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[15] = oper;
+        _operations[16] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("removeDocument");
@@ -236,7 +248,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
         oper.setReturnQName(new javax.xml.namespace.QName("", "removeDocumentReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[16] = oper;
+        _operations[17] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("removeDocumentRevision");
@@ -249,7 +261,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
         oper.setReturnQName(new javax.xml.namespace.QName("", "removeDocumentRevisionReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[17] = oper;
+        _operations[18] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("changeMetaData");
@@ -268,8 +280,13 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
         oper.setReturnQName(new javax.xml.namespace.QName("", "changeMetaDataReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[18] = oper;
+        _operations[19] = oper;
 
+    }
+
+    private static void _initOperationDesc3(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getDocumentFile");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "revisionId"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"), long.class, false, false);
@@ -281,7 +298,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
         oper.setReturnQName(new javax.xml.namespace.QName("", "getDocumentFileReturn"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.ENCODED);
-        _operations[19] = oper;
+        _operations[20] = oper;
 
     }
 
@@ -774,7 +791,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 }
     }
 
-    public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocuments(int id, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException {
+    public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocuments(long id, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -787,7 +804,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Integer(id), new java.lang.Integer(from), new java.lang.Integer(num), orderBy});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(id), new java.lang.Integer(from), new java.lang.Integer(num), orderBy});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -898,12 +915,43 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
 }
     }
 
-    public cz.muni.fi.pa165.local.dto.DocumentDto getDocumentById(long id) throws java.rmi.RemoteException {
+    public int getDocumentCount(long id) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[15]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://soap.service.docserver.pa165.fi.muni.cz", "getDocumentCount"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {new java.lang.Long(id)});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return ((java.lang.Integer) _resp).intValue();
+            } catch (java.lang.Exception _exception) {
+                return ((java.lang.Integer) org.apache.axis.utils.JavaUtils.convert(_resp, int.class)).intValue();
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public cz.muni.fi.pa165.local.dto.DocumentDto getDocumentById(long id) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[16]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
@@ -934,7 +982,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[16]);
+        _call.setOperation(_operations[17]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
@@ -965,7 +1013,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[17]);
+        _call.setOperation(_operations[18]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
@@ -996,7 +1044,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[18]);
+        _call.setOperation(_operations[19]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
@@ -1027,7 +1075,7 @@ public class DocumentServiceSoapBindingStub extends org.apache.axis.client.Stub 
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[19]);
+        _call.setOperation(_operations[20]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);

@@ -24,7 +24,7 @@ import javax.persistence.Temporal;
  */
 @Entity
 @NamedQueries({@NamedQuery(name = "getDocumentsByUserId",
-                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 = true ORDER BY d.title ASC"),
+                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 OR d.isPublic = true ORDER BY d.title ASC"),
                @NamedQuery(name = "getDocumentCountByUserId",
                            query = "SELECT count(d) FROM Document d WHERE d.author.id = ?1"),
                @NamedQuery(name = "getDocumentsByUserIdDate",
@@ -32,7 +32,9 @@ import javax.persistence.Temporal;
                @NamedQuery(name = "getVisible",
                            query = "SELECT d FROM Document d WHERE d.author.id = ?1 OR d.isPublic = true ORDER BY d.title ASC"),
                @NamedQuery(name = "getVisibleByDate",
-                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 OR d.isPublic = true ORDER BY d.creatiionDate ASC")
+                           query = "SELECT d FROM Document d WHERE d.author.id = ?1 OR d.isPublic = true ORDER BY d.creationDate ASC"),
+               @NamedQuery(name = "getVisibleCount",
+                           query = "SELECT count(d) FROM Document d WHERE d.author.id = ?1 OR d.isPublic = true")
 })
 public class Document implements Serializable {
 

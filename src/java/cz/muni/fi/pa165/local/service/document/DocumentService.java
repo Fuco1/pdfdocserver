@@ -16,10 +16,11 @@ public interface DocumentService extends java.rmi.Remote {
     public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocumentsByUserId(long id, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException;
     public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocumentsByTags(java.lang.String[] tags, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException;
     public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocumentsByFulltext(java.lang.String[] query, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException;
-    public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocuments(int id, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException;
+    public cz.muni.fi.pa165.local.dto.DocumentDto[] getDocuments(long id, int from, int num, java.lang.String orderBy) throws java.rmi.RemoteException;
     public int getDocumentCountByUserId(long id) throws java.rmi.RemoteException;
     public int getDocumentCountByTags(java.lang.String[] tags) throws java.rmi.RemoteException;
     public int getDocumentCountByFulltext(java.lang.String[] query) throws java.rmi.RemoteException;
+    public int getDocumentCount(long id) throws java.rmi.RemoteException;
     public cz.muni.fi.pa165.local.dto.DocumentDto getDocumentById(long id) throws java.rmi.RemoteException;
     public boolean removeDocument(long id) throws java.rmi.RemoteException;
     public boolean removeDocumentRevision(long docId, long revisionId) throws java.rmi.RemoteException;

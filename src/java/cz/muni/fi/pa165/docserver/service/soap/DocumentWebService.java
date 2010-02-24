@@ -45,7 +45,7 @@ public class DocumentWebService extends ServletEndpointSupport implements Docume
         return logic.getDocumentsByFulltext(query, from, num, orderBy);
     }
 
-    public DocumentDto[] getDocuments(int id, int from, int num, String orderBy) {
+    public DocumentDto[] getDocuments(long id, int from, int num, String orderBy) {
         return logic.getDocuments(id, from, num, orderBy);
     }
 
@@ -62,7 +62,7 @@ public class DocumentWebService extends ServletEndpointSupport implements Docume
     }
 
     public DocumentDto getDocumentById(long id) {
-        return getDocumentById(id);
+        return logic.getDocumentById(id);
     }
 
     public boolean removeDocument(long id) {
@@ -91,5 +91,9 @@ public class DocumentWebService extends ServletEndpointSupport implements Docume
 
     public String getDocumentFile(long revisionId, long documentId) {
         return logic.getDocumentFile(revisionId, documentId);
+    }
+
+    public int getDocumentCount(long id) {
+        return logic.getDocumentCount(id);
     }
 }

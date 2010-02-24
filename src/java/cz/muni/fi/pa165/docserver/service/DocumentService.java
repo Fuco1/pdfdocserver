@@ -83,7 +83,7 @@ public interface DocumentService extends GenericEntityService<Document> {
      * "byAuthor" and "byDate"
      * @return Serializable representation of {@code Document[]}
      */
-    DocumentDto[] getDocuments(int id, int from, int num, String orderBy);
+    DocumentDto[] getDocuments(long id, int from, int num, String orderBy);
 
     /**
      * Utility method used to calculate pagination. PageCount = TotalCount/PerPage
@@ -148,4 +148,6 @@ public interface DocumentService extends GenericEntityService<Document> {
     boolean changeMetaData(long id, String title, Tag[] tags, String description, boolean isPublic);
 
     String getDocumentFile(long revisionId, long documentId);
+
+    int getDocumentCount(long id);
 }
