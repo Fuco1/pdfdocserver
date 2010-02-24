@@ -66,7 +66,10 @@ public class DocumentServiceImpl implements DocumentService {
         }
         DocumentFile df = new DocumentFile();
         df.setFilename(doc.getName());
-        df.setCreationDate(new Date());
+        Date now = new Date();
+        df.setCreationDate(now);
+        document.setCreationDate(now);
+
         DocumentFile[] files = {(df)};
         document.setFiles(files);
         docDao.persist(DtoToDocument(document));
@@ -94,8 +97,12 @@ public class DocumentServiceImpl implements DocumentService {
 
     public DocumentDto[] getDocumentsByUserId(long id, int from, int num, String orderBy) {
         List<Document> docs = null;
-        if ("title".equals(orderBy)) docs = docDao.executeNamedQuery("getDocumentsByUserId", from, num, id);
-        if ("date".equals(orderBy)) docs = docDao.executeNamedQuery("getDocumentsByUserIdDate", from, num, id);
+        if ("title".equals(orderBy)) {
+            docs = docDao.executeNamedQuery("getDocumentsByUserId", from, num, id);
+        }
+        if ("date".equals(orderBy)) {
+            docs = docDao.executeNamedQuery("getDocumentsByUserIdDate", from, num, id);
+        }
         DocumentDto[] ret = new DocumentDto[docs.size()];
         for (int i = 0; i < docs.size(); i++) {
             ret[i] = documentToDto(docs.get(i));
@@ -117,10 +124,14 @@ public class DocumentServiceImpl implements DocumentService {
         return getDocumentsByTags(query, from, num, orderBy);
     }
 
-    public DocumentDto[] getDocuments(int id, int from, int num, String orderBy) {
+    public DocumentDto[] getDocuments(long id, int from, int num, String orderBy) {
         List<Document> docs = null;
-        if (orderBy.equals("title")) docs = docDao.executeNamedQuery("", id, from, num);
-        if (orderBy.equals("date")) docs = docDao.executeNamedQuery("", id, from, num);
+        if (orderBy.equals("title")) {
+            docs = docDao.executeNamedQuery("getVisible", from, num, id);
+        }
+        if (orderBy.equals("date")) {
+            docs = docDao.executeNamedQuery("getVisibleByDate", from, num, id);
+        }
         DocumentDto[] ret = new DocumentDto[docs.size()];
         for (int i = 0; i < docs.size(); i++) {
             ret[i] = documentToDto(docs.get(i));
@@ -138,6 +149,10 @@ public class DocumentServiceImpl implements DocumentService {
 
     public int getDocumentCountByFulltext(String[] query) {
         return getDocumentCountByTags(query);
+    }
+
+    public int getDocumentCount(long id) {
+        return docDao.findByNamedQuery(Integer.class, "getVisibleCount", id);
     }
 
     public DocumentDto getDocumentById(long id) {
@@ -208,8 +223,10 @@ public class DocumentServiceImpl implements DocumentService {
     public String getDocumentFile(long revisionId, long documentId) {
         Document document = docDao.find(documentId);
         DocumentFile file = null;
-        for (DocumentFile df : document.getFiles()){
-            if(df.getId() == revisionId) file = df;
+        for (DocumentFile df : document.getFiles()) {
+            if (df.getId() == revisionId) {
+                file = df;
+            }
         }
         File text = new File(document.getTitle() + "_" + document.getAuthor().getName() + "_" + new Date().getTime() + ".pdf");
         FileInputStream fis;
@@ -220,8 +237,8 @@ public class DocumentServiceImpl implements DocumentService {
             byte[] bytes = new byte[bis.available()];
             bis.read(bytes);
             ret = new String(bytes);
-         } catch (IOException ex) {
-           // Logger.getLogger(DocumentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            // Logger.getLogger(DocumentServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ret;
 
